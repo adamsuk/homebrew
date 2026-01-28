@@ -3,14 +3,12 @@
 echo "Homebrew Back-Uperer"
 
 # change to my backup location
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-cd $SCRIPT_DIR
+cd $HOME/Documents/repos/Personal/homebrew
 
 # run the backup
-BREW=$( which brew )
-$BREW bundle dump --force
+/home/linuxbrew/.linuxbrew/bin/brew bundle dump --force
 
 # add to git repo
 git add .
-git commit -m "Regular automated backup"
+git commit -m "Regular automated backup [skip ci]"
 git push
